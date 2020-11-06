@@ -11,8 +11,19 @@ public class BankFeatures {
   Map<String, User> users = new HashMap<>();
 
   public void pay(User from, User to, double amount) {
-    from.getAccount().setBalance(from.getAccount().getBalance() - amount);
-    to.getAccount().setBalance(to.getAccount().getBalance() + amount);
+
+    Account fromAccount = from.getAccount();
+    Account toAccount = to.getAccount();
+
+    if (fromAccount.getBalance() < amount) {
+      throw new RuntimeException(
+          String.format(
+              "from user does not have enough money to make payment [from=%s;from.balance=%s]",
+              from.getName(), fromAccount.getBalance() + ""));
+    }
+
+    fromAccount.setBalance(fromAccount.getBalance() - amount);
+    toAccount.setBalance(toAccount.getBalance() + amount);
   }
 
   public void transfer(User user, long fromAccount, long toAccount) {}

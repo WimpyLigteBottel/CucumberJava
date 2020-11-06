@@ -26,7 +26,12 @@ public class MakingPayments extends AssertionState {
     Optional<User> user = bankFeatures.findUser(string);
     Optional<User> user2 = bankFeatures.findUser(string2);
 
-    bankFeatures.pay(user.get(), user2.get(), double1);
+    try {
+
+      bankFeatures.pay(user.get(), user2.get(), double1);
+    } catch (Exception e) {
+      exception = e;
+    }
   }
 
   @Then("`{double}` money needs to be subtracted from {string} account")

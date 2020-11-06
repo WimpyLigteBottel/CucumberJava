@@ -3,8 +3,8 @@ package com.wimpy;
 public class Account {
 
   private final long accountNr;
-  String accountName;
-  double balance;
+  private String accountName;
+  private double balance;
 
   public Account(long accountNr, String accountName, double balance) {
     this.accountNr = accountNr;
