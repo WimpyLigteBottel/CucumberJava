@@ -1,12 +1,9 @@
 package com.wimpy;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class User {
 
   private final java.lang.String name;
-  Account accounts;
+  private Account accounts;
 
   public User(java.lang.String name) {
     this.name = name;

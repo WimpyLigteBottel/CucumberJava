@@ -10,7 +10,10 @@ public class BankFeatures {
 
   Map<String, User> users = new HashMap<>();
 
-  public void pay(User from, User to) {}
+  public void pay(User from, User to, double amount) {
+    from.getAccount().setBalance(from.getAccount().getBalance() - amount);
+    to.getAccount().setBalance(to.getAccount().getBalance() + amount);
+  }
 
   public void transfer(User user, long fromAccount, long toAccount) {}
 
